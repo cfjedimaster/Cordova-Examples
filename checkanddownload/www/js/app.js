@@ -19,7 +19,7 @@ function init() {
 	$status.innerHTML = "Checking for data file.";
 
 	//The directory to store data
-	var store = cordova.file.applicationStorageDirectory;
+	var store = cordova.file.dataDirectory;
 
 	//The Object version - no error handler because this must work
 	window.resolveLocalFileSystemURL(store, function(ob) {
@@ -45,8 +45,8 @@ function downloadAsset() {
 	var fileTransfer = new FileTransfer();
 	console.log("About to start transfer");
 	console.log("dest: "+storeOb.fullPath + fileName);
-	console.log("dest: "+storeOb.toInternalURL() + fileName);
-	fileTransfer.download(assetURL, storeOb.toInternalURL() + fileName, 
+	console.log("dest: "+storeOb.toURL() + fileName);
+	fileTransfer.download(assetURL, storeOb.toURL() + fileName, 
 		function(entry) {
 			console.log("Success!");
 			appStart();
