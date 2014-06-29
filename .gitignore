@@ -1,6 +1,6 @@
 
 #Hide everything but www - really unsure of this...
-
+.cordova
 hooks
 merges
 platforms
