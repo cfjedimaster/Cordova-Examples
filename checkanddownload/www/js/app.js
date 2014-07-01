@@ -44,8 +44,6 @@ function init() {
 function downloadAsset() {
 	var fileTransfer = new FileTransfer();
 	console.log("About to start transfer");
-	console.log("dest: "+storeOb.fullPath + fileName);
-	console.log("dest: "+storeOb.toURL() + fileName);
 	fileTransfer.download(assetURL, storeOb.toURL() + fileName, 
 		function(entry) {
 			console.log("Success!");
