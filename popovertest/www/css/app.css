@@ -1,0 +1,12 @@
+body {
+	margin-top: 20px;
+}
+
+#canvas {
+	position: absolute;
+	left: 300px;
+	top: 300px;
+	background-color: red;
+	width: 200px;
+	height: 200px;
+}
