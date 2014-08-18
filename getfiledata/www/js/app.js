@@ -4,11 +4,10 @@ function init() {
 	//This alias is a read-only pointer to the app itself
 	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/index.html", gotFile, fail);
 
-
 }
 
 function fail(e) {
-	console.log("FileSystem Error3");
+	console.log("FileSystem Error");
 	console.dir(e);
 }
 
