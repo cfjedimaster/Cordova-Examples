@@ -11,3 +11,4 @@ gulpfile.js
 ionic.project
 package.json
 scss
+.bowerrc
