@@ -6,3 +6,8 @@ merges
 platforms
 plugins
 config.xml
+bower.json
+gulpfile.js
+ionic.project
+package.json
+scss

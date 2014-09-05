@@ -1,0 +1,16 @@
+<ion-view title="{{TITLE}}">
+
+	<ion-content class="padding">
+
+		<ion-list class="list list-inset">
+
+			<ion-item ng-repeat="entry in entries" href="#/entry/{{$index}}">
+				{{entry.title}}
+			</ion-item>
+
+		</ion-list>
+
+	</ion-content>
+	
+</ion-view>
+
