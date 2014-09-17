@@ -63,8 +63,6 @@
 		$rootScope.notHome = false;
 		
 		$scope.entries = $rootScope.entries;
-		console.log(JSON.stringify($scope.entries[0]));
-
 	}])
 	
 	.controller('EntryCtrl', ['$scope', '$rootScope', '$location', '$stateParams', function($scope, $rootScope, $location, $stateParams) { 
