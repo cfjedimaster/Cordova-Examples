@@ -20,17 +20,6 @@ function init() {
 			destinationType: Camera.DestinationType.FILE_URI
 		});
 
-		function onSuccess(imageData) {
-			console.log('success');
-			var image = document.getElementById('myImage');
-			image.src = imageData;
-			console.log(imageData);
-		}
-
-		function onFail(message) {
-			alert('Failed because: ' + message);
-		}
-
 	});
 
 	//Use from Library
