@@ -1,4 +1,4 @@
-Fil Metadata Example
+File Metadata Example
 ===
 
 This application requests a file so that it can fetch metadata about
