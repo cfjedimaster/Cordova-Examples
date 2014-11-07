@@ -1,7 +1,7 @@
 var globals = {};
 globals.checkedServer = false;
 globals.assetServer = "http://192.168.1.67/assets.json";
-globals.assetSubDir = "assets3";
+globals.assetSubDir = "assets";
 
 document.addEventListener("deviceready", init, false);
 function init() {
@@ -38,11 +38,7 @@ function init() {
 					for(var i=0, len=res.length; i<len; i++) {
 						var file = res[i].split("/").pop();
 						var haveIt = false;
-						/*
-						if(globals.assets.indexOf(file) === -1) {
-							fetch(res[i]);	
-						}
-						*/
+
 						for(var k=0; k<globals.assets.length; k++) {
 							if(globals.assets[k].name === file) {
 								console.log("we already have file "+file);
