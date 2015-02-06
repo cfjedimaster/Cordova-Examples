@@ -12,3 +12,5 @@ ionic.project
 package.json
 scss
 .bowerrc
+.brackets.json
+.DS_Store
