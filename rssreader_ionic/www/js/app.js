@@ -1,6 +1,6 @@
 (function() {
 /* global angular,window,cordova,console */
-	
+
 	angular.module('starter', ['ionic','ngCordova','rssappControllers'])
 
 	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -8,21 +8,21 @@
 		$stateProvider
 			.state('Home', {
 				url: '/',
-				controller: 'HomeCtrl', 
+				controller: 'HomeCtrl',
 				templateUrl: 'partials/home.html'
 			})
 			.state('Entries', {
-				url: '/entries', 
-				controller: 'EntriesCtrl', 
+				url: '/entries',
+				controller: 'EntriesCtrl',
 				templateUrl: 'partials/entries.html',
 			})
 			.state('Entry', {
 				url: '/entry/:index',
-				controller: 'EntryCtrl', 
+				controller: 'EntryCtrl',
 				templateUrl: 'partials/entry.html',
 			})
 			.state('Offline', {
-				url: '/offline', 
+				url: '/offline',
 				templateUrl: 'partials/offline.html'
 			});
 
@@ -36,12 +36,12 @@
 		//Title of the blog
 		$rootScope.TITLE = "Raymond Camden's Blog";
 		//RSS url
-		$rootScope.RSS = "http://www.raymondcamden.com/rss.cfm";
+		$rootScope.RSS = "http://feeds.feedburner.com/raymondcamdensblog";
 
 		$rootScope.goHome = function() {
 			$location.path('/entries');
 		};
-		
+
 	});
 
 }());

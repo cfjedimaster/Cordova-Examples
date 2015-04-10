@@ -5,15 +5,15 @@
 	angular.module('rssappControllers', [])
 
 	.controller('HomeCtrl', ['$ionicPlatform', '$scope', '$rootScope', '$cordovaNetwork', '$ionicLoading', '$location', function($ionicPlatform, $scope, $rootScope, $cordovaNetwork, $ionicLoading, $location) {
-		
+
 		$ionicLoading.show({
       		template: 'Loading...'
 		});
-		
+
 		function initialize() {
-			console.log('googles init called');	
+			console.log('googles init called');
 			var feed = new google.feeds.Feed($rootScope.RSS);
-			
+
 			feed.setNumEntries(10);
 			feed.load(function(result) {
 				$ionicLoading.hide();
@@ -28,7 +28,7 @@
 			});
 
 		}
-		
+
 		$ionicPlatform.ready(function() {
 
 			console.log("Started up!!");
@@ -53,19 +53,19 @@
 
 	}])
 
-	.controller('EntriesCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) { 
+	.controller('EntriesCtrl', ['$scope', '$rootScope', '$location', function($scope, $rootScope, $location) {
 		console.log('EntriesCtrl called');
 		/*
 		handle issue with Ionic CLI reloading
 		*/
 		if(!$rootScope.entries) $location.path('/');
-		
+
 		$rootScope.notHome = false;
-		
+
 		$scope.entries = $rootScope.entries;
 	}])
-	
-	.controller('EntryCtrl', ['$scope', '$rootScope', '$location', '$stateParams', function($scope, $rootScope, $location, $stateParams) { 
+
+	.controller('EntryCtrl', ['$scope', '$rootScope', '$location', '$stateParams', function($scope, $rootScope, $location, $stateParams) {
 		console.log('EntryCtrl called');
 
 		/*
@@ -74,15 +74,15 @@
 		if(!$rootScope.entries) $location.path('/');
 
 		$rootScope.notHome = true;
-		
+
 		$scope.index = $stateParams.index;
 		$scope.entry = $rootScope.entries[$scope.index];
-		
+
 		$scope.readEntry = function(e) {
 			window.open(e.link, "_blank");
 		};
-		
+
 	}]);
 
-	
+
 }());
