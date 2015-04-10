@@ -1,0 +1,15 @@
+<ion-view title="Multi Select Demo">
+
+	<ion-content class="padding">
+
+		<button class="button button-block button-balanced" ng-click="selImages()" ng-disabled="!ready">
+			Select Images
+		</button>
+		  
+		<p ng-repeat="img in images">
+			<img ng-src="{{img}}" style="max-width:250px;max-height:250px" />
+		</p>
+		   
+	</ion-content>
+	
+</ion-view>

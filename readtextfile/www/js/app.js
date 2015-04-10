@@ -1,6 +1,11 @@
 document.addEventListener("deviceready", init, false);
 function init() {
-	
+
+	console.log(cordova.file.applicationDirectory);	
+	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory, function(f) {
+		console.dir(f);
+	}, fail);
+
 	//This alias is a read-only pointer to the app itself
 	window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/index.html", gotFile, fail);
 
