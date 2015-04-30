@@ -1,0 +1,28 @@
+<ion-view>
+	<ion-nav-title>{{detail.name}}</ion-nav-title>
+
+	<ion-content class="padding">
+
+		<div class="card">
+
+		  <div class="item item-divider">
+		    {{detail.name}}
+		  </div>
+
+		  <div class="item item-text-wrap">
+		    <p ng-bind-html="detail.description"></p>
+		  </div>
+
+		  <div class="item tab tabs-secondary tabs-icon-left">
+			<span ng-click="play()">
+			<i class="icon ion-play"></i>
+		    Play
+			</span>
+		  </div>
+
+		</div>
+
+	</ion-content>
+
+
+</ion-view>
