@@ -1,6 +1,6 @@
 angular.module('starter.services', [])
 
-.factory('MP3Service', function($q,$cordovaFile,$http) {
+.factory('MP3Service', function($q,$cordovaFile) {
 	
 	//root of where my stuff is
 	console.log('running service');
@@ -51,49 +51,9 @@ angular.module('starter.services', [])
 
 					process(0, function(data) {
 						console.log("Done processing");
-						console.dir(data[0]);
+						console.dir(data);
 						items = data;
-						// New logic - now we get album art
-						var defs = [];
-						//remember artist + album
-						var albums = {};
-						
-						for(var i=0;i<items.length;i++) {
-							var album = items[i].tags.album;
-							var artist = items[i].tags.artist;
-							console.log("album="+album+" artist="+artist);
-							if(albums[album+" "+artist]) {
-								console.log("get from album cache");
-								var def =  $q.defer();
-								def.resolve({cache:album+" "+artist});
-								defs.push(def.promise);
-							} else {
-								albums[album+" "+artist] = 1;
-								defs.push($http.get("http://ws.audioscrobbler.com/2.0/?method=album.getinfo&artist="+encodeURI(artist)+"&album="+encodeURI(album)+"&api_key=561a7281014565990be9aad2827e0253&format=json"));
-							}
-						}
-						$q.all(defs).then(function(res) {
-							console.log("in the q all");
-							for(var i=0;i<res.length;i++) {
-								console.log(i, res[i]);
-								//if we marked it as 'from cache', check cache
-								if(res[i].cache) {
-									console.log('setting from cache '+albums[res[i].cache])
-									items[i].image = albums[res[i].cache];
-								} else {
-									var result = res[i].data;
-									//potential match at result.album.image
-									if(result.album && result.album.image) {
-										items[i].image = result.album.image[3]["#text"];
-									} else {
-										items[i].image = "";
-									}
-									albums[items[i].tags.album+" "+items[i].tags.artist] = items[i].image;
-								}
-							}
-							
-							deferred.resolve(items);
-						});
+						deferred.resolve(items);
 					});
 
 

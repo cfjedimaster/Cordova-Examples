@@ -1,0 +1,15 @@
+<ion-view view-title="MP3 Player">
+
+	<ion-content class="padding">
+
+		<ion-list class="list list-inset">
+
+			<ion-item ng-repeat="item in content" href="#/item/{{$index}}">
+				{{item.name}}
+			</ion-item>
+
+		</ion-list>
+
+	</ion-content>
+
+</ion-view>
