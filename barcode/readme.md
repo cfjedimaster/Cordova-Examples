@@ -1,4 +1,4 @@
-Barcode Example
+Barcode Example!
 ===
 
 This is a simple example of the barcode plugin. To use, add the plugin https://github.com/wildabeast/BarcodeScanner.git via the command line. 
