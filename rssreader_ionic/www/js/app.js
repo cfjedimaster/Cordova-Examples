@@ -1,7 +1,12 @@
 (function() {
 /* global angular,window,cordova,console */
 
-	angular.module('starter', ['ionic','ngCordova','rssappControllers'])
+	angular.module('starter', ['ionic','ngCordova','rssappControllers','rssappServices'])
+
+	.constant("settings", {
+		title:"Raymond Camden's Blog",
+		rss:"http://feeds.feedburner.com/raymondcamdensblog"
+	})
 
 	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
@@ -32,11 +37,17 @@
 
 	.run(function($ionicPlatform, $rootScope, $location) {
 
-		//EDIT THESE LINES
-		//Title of the blog
-		$rootScope.TITLE = "Raymond Camden's Blog";
-		//RSS url
-		$rootScope.RSS = "http://feeds.feedburner.com/raymondcamdensblog";
+		$ionicPlatform.ready(function() {
+			// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+			// for form inputs)
+			if(window.cordova && window.cordova.plugins.Keyboard) {
+				cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+			}
+			if(window.StatusBar) {
+				StatusBar.styleDefault();
+			}
+
+		});
 
 		$rootScope.goHome = function() {
 			$location.path('/entries');
