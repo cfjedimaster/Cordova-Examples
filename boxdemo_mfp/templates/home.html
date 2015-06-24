@@ -1,0 +1,15 @@
+<ion-view view-title="Home">
+	<ion-content class="padding">
+		
+		<button class="button button-positive button-block" ng-click="doAuth()" ng-show="noAuth">Auth with Box</button>
+		
+		<button class="button button-positive button-block" ng-click="doPicture()" ng-show="!noAuth">Upload Picture</button>
+		
+		<div ng-show="selectedImage">
+			<img ng-src="{{selectedImage}}" style="max-width:200px;max-height:200px">
+			<div id="status">{{status.message}}</div>
+		</div>
+				
+	</ion-content>
+</ion-view>
+
