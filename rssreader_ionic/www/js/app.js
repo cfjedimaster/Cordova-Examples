@@ -35,7 +35,7 @@
 
 	}])
 
-	.run(function($ionicPlatform, $rootScope, $location) {
+	.run(['$ionicPlatform','$rootScope','$state', function($ionicPlatform, $rootScope, $state) {
 
 		$ionicPlatform.ready(function() {
 			// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -50,9 +50,9 @@
 		});
 
 		$rootScope.goHome = function() {
-			$location.path('/entries');
+			$state.go("Entries");
 		};
 
-	});
+	}]);
 
 }());

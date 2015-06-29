@@ -4,7 +4,7 @@
 
 	angular.module('rssappControllers', [])
 
-	.controller('HomeCtrl', ['$ionicPlatform', '$scope', '$rootScope', '$cordovaNetwork', '$ionicLoading', '$location', 'rssService', 'settings', function($ionicPlatform, $scope, $rootScope, $cordovaNetwork, $ionicLoading, $location, rssService, settings) {
+	.controller('HomeCtrl', ['$ionicPlatform', '$scope', '$rootScope', '$cordovaNetwork', '$ionicLoading', '$state', 'rssService', 'settings', function($ionicPlatform, $scope, $rootScope, $cordovaNetwork, $ionicLoading, $state, rssService, settings) {
 
 		$ionicLoading.show({
       		template: 'Loading...'
@@ -18,13 +18,13 @@
 				rssService.getEntries(settings.rss).then(function(entries) {
 					$ionicLoading.hide();
 					$rootScope.entries = entries;
-					$location.path('/entries');
+					$state.go("Entries");
 				});
 
 			} else {
 				console.log("offline, push to error");
 				$ionicLoading.hide();
-				$location.path('/offline');
+				$state.go("Offline");
 			}
 
 		});
