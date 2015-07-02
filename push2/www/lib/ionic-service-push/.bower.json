@@ -1,0 +1,32 @@
+{
+  "name": "ionic-service-push",
+  "version": "0.1.8",
+  "homepage": "http://ionic.io",
+  "authors": [
+    "Max Lynch <max@ionicframework.com>",
+    "William Pelrine <rudy@drifty.com>"
+  ],
+  "description": "Ionic Mobile Platform Push Notifications client",
+  "main": "ionic-push.js",
+  "license": "Apache2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ionic-service-core": " >= 0.1.4"
+  },
+  "_release": "0.1.8",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.8",
+    "commit": "fac22606439d1c684aa1c02abb678f32e39e27af"
+  },
+  "_source": "git://github.com/driftyco/ionic-service-push-client.git",
+  "_target": "~0.1.8",
+  "_originalSource": "ionic-service-push",
+  "_direct": true
+}

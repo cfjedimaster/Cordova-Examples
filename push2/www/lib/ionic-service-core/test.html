@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="ionicCore.js"></script>
+  </head>
+  <body ng-app="test">
+
+    <script>
+
+      angular.module('test', ['ionic.services.common'])
+
+      .config(['$ionicAppProvider', function($ionicAppProvider) {
+
+        // Identify app
+        $ionicAppProvider.identify({
+          // The App ID for the server
+          app_id: '34defa356',
+          // The API key all services will use for this app
+          api_key: '34def5631deab31bca335defa23456'
+        });
+
+      }])
+
+      .run(['$ionicApp', function($ionicApp) {
+        console.log('Running', $ionicApp.getApp());
+      }])
+
+    </script>
+  </body>
+</html>
