@@ -15,7 +15,7 @@
 			    url: '/root',
 			    abstract: true,
 			    controller:'RootCtrl',
-				template:'<ui-view />'
+				template:'<ion-nav-view />'
 			  })
 			.state('root.Home', {
 				url: '/home',
@@ -37,12 +37,12 @@
 				templateUrl: 'partials/offline.html'
 			});
 
-		$urlRouterProvider.otherwise("/home");
+		$urlRouterProvider.otherwise("/root/home");
 
 	}])
 
 	.run(['$ionicPlatform','$rootScope','$state', function($ionicPlatform, $rootScope, $state) {
-		$state.go("root.Home");
+
 		$rootScope.goHome = function() {
 			$state.go("root.Entries");
 		};

@@ -8,7 +8,7 @@
 	  
 	  console.log('test ctrl');
 	  $scope.$on('$ionicView.afterEnter', function(ev, data) { 
-	      //ev.stopPropagation();
+	      ev.stopPropagation();
 	  });
 	
 	})
