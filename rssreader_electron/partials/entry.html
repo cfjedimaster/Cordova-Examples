@@ -1,0 +1,17 @@
+<ion-view view-title="{{entry.title}}">
+
+	<ion-content class="padding has-header">
+
+		<h2>{{entry.title}}</h2>
+		<p><b>Published:</b> {{entry.publishedDate}}</p>
+		
+		<div ng-bind-html="entry.content"></div>
+		
+	
+	</ion-content>
+
+	<ion-footer-bar class="bar-positive" ng-click="readEntry(entry)">
+			<h1 class="title">Read Entry on Site</h1>
+	</ion-footer-bar>
+		
+</ion-view>
