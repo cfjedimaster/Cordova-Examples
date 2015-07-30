@@ -1,0 +1,24 @@
+<ion-view view-title="My Sound Board">
+
+  <ion-content class="padding">
+
+    <div ng-if="sounds.length > 0">
+			<ion-list show-delete="false" can-swipe="true">
+				<ion-item ng-repeat="sound in sounds" ng-click="play($index)">
+					{{sound.name}}
+					
+					<ion-option-button class="button-assertive" ng-click="delete($index)">
+					Delete
+					</ion-option-button>		
+
+				</ion-item>
+			</ion-list>
+    </div>
+
+    <a href="#/new" class="button button-balanced button-block" ng-show="cordova.loaded">
+      Record New Sound
+    </a>
+		 
+  </ion-content>
+
+</ion-view>

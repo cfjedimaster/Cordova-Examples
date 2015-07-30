@@ -1,0 +1,29 @@
+<ion-view view-title="Record New Sound">
+	<ion-content class="padding">
+
+		<div class="row">
+			<div class="col">
+
+				<label class="item item-input">
+					<input type="text" ng-model="sound.name" placeholder="Name">
+				</label>
+			</div>
+		</div>				
+
+		<div class="row">
+			<div class="col">
+				<button class="button button-block button-balanced icon-left ion-android-microphone" ng-click="record()">Record</button>
+			</div>
+			<div class="col">
+				<button class="button button-block button-balanced icon-left ion-play" ng-click="play()">Play</button>
+			</div>
+		</div>	
+
+		<div class="row">
+			<div class="col">
+				<button class="button button-block button-positive" ng-click="saveSound()">Save</button>
+			</div>
+		</div>
+		
+  </ion-content>
+</ion-view>
