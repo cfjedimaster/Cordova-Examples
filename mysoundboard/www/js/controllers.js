@@ -21,9 +21,18 @@ angular.module('mysoundboard.controllers', [])
 	}
 	
 	$scope.delete = function(x) {
-		console.log('delete', x);	
-		Sounds.delete(x).then(function() {
-			getSounds();
+		console.log('delete', x);
+		Sounds.get().then(function(sounds) {
+			var toDie = sounds[x];
+			window.resolveLocalFileSystemURL(toDie.file, function(fe) {
+				fe.remove(function() {
+					Sounds.delete(x).then(function() {
+						getSounds();
+					});
+				}, function(err) {
+					console.log("err cleaning up file", err);
+				});
+			});
 		});
 	}
 	

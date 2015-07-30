@@ -14,6 +14,11 @@
 				</ion-item>
 			</ion-list>
     </div>
+	<div ng-if="sounds.length < 1">
+		<p>
+			No sounds yet. Why not record a new one?
+		</p>
+	</div>
 
     <a href="#/new" class="button button-balanced button-block" ng-show="cordova.loaded">
       Record New Sound
