@@ -1,0 +1,14 @@
+body {
+	margin-top: 20px;
+}
+
+#images img {
+	max-width: 250px;
+	max-height: 250px;
+	margin-bottom:5px;
+}
+
+button {
+	width: 90%;
+	padding: 15px;
+}
