@@ -13,12 +13,13 @@ angular.module('starter', ['ionic'])
 		if(!$scope.search) return;
 		console.log("search for ", $scope.search);	
 		ImageSearch.getImages($scope.search).then(function(results) {
-			console.log("back with results");
 			console.dir(results.data.d.results);
 			$scope.images = results.data.d.results;
-			console.dir($scope.images[0]);
-			$ionicSlideBoxDelegate.update();
-			$ionicSlideBoxDelegate.slide(0);
+			setTimeout(function() {
+				$ionicSlideBoxDelegate.slide(0);
+				$ionicSlideBoxDelegate.update();
+				$scope.$apply();
+			});
 		});
 	};
 	
