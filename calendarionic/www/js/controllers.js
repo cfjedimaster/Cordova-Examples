@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('MainCtrl', function($scope, Events,$ionicPlatform,$cordovaCalendar) {
+.controller('MainCtrl', function($scope, Events,$ionicPlatform,$cordovaCalendar,$timeout) {
 	
 	$ionicPlatform.ready(function() {
 		Events.get().then(function(events) {
@@ -17,7 +17,7 @@ angular.module('starter.controllers', [])
 			if(result === 1) {
 				//update the event
 				console.log("fix "+idx);
-				setTimeout(function() {
+				$timeout(function() {
 					$scope.events[idx].status = true;
 					$scope.$apply();
 					console.dir($scope.events);
