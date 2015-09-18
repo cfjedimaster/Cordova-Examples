@@ -37,6 +37,11 @@
 						{{ event.description }}
 						<p/>
 						<strong>When: {{ event.date | date:'short' }}</strong>
+						
+						<p ng-show="{{event.status}}">This event is added to your calendar already!</p>
+
+						<button ng-show="{{!event.status}}" ng-click="addEvent(event,$index)" class="button button-block button-balanced">Add to Schedule</button>
+						
 					</div>
 				</div>
 				
