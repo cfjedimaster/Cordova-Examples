@@ -16,11 +16,9 @@ angular.module('starter.controllers', [])
 			console.log("done adding event, result is "+result);
 			if(result === 1) {
 				//update the event
-				console.log("fix "+idx);
 				$timeout(function() {
 					$scope.events[idx].status = true;
 					$scope.$apply();
-					console.dir($scope.events);
 				});
 			} else {
 				//For now... maybe just tell the user it didn't work?
