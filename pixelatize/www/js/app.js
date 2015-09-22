@@ -6,35 +6,27 @@
 angular.module('starter', ['ionic'])
 
 .controller('MainCtrl', function($scope, $ionicPlatform) {
-  console.log("Loaded");
   $scope.appNotReady = true;
   $scope.pixelSize = 10;
 
   $ionicPlatform.ready(function() {
-    console.log('yes i fucking run');
     $scope.appNotReady = false;
     $scope.$apply();
     var imgDom = document.querySelector("#selectedImage");
     var canvasDom = document.querySelector("#image");
 
     $scope.selPicture = function() {
-      console.log("select picture");
 
-      //pixelatizeModule.pixelatize(imgDom, canvasDom, $scope.pixelSize);
       navigator.camera.getPicture(function(url) {
-        console.log('success', url);
         imgDom.onload = function() {
-          //pixelatizeModule.pixelatizeImage(imgDom, canvasDom, $scope.pixelSize);
-          console.log($scope.pixelSize);
-          var mySize = $scope.pixelSize;
-          pixelatizeModule.pixelatizeImage(imgDom, canvasDom, mySize);
+          pixelatizeModule.pixelatizeImage(imgDom, canvasDom, parseInt($scope.pixelSize,10));
         }
         imgDom.src = url;
       }, function(err) {
         console.log('err', err);
       }, {
         quality: 50,
-        sourceType:Camera.PictureSourceType.PHOTOLIBRARY,
+        sourceType:Camera.PictureSourceType.CAMERA,
         destinationType:Camera.DestinationType.FILE_URI,
         targetWidth:300,
         targetHeight:300
