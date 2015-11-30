@@ -1,0 +1,1 @@
+This demo simply demonstrates the use of the isVirtual property in the device plugin. The demo makes use of the device and camera plugins.
