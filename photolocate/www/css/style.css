@@ -1,0 +1,13 @@
+/* Empty. Add your own CSS if you like */
+
+#selImage {
+	max-width:300px;
+	max-height:300px;
+	display: block;
+	margin: 0 auto;
+}
+
+.map {
+	display:block;
+	margin: 0 auto;
+}
