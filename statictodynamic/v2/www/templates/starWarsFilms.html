@@ -1,0 +1,7 @@
+<ion-view title="Star Wars Films">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <ion-list>
+			<ion-item ng-repeat="film in films" ui-sref="filmTitle({id:film.id})">{{film.title}}</ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
