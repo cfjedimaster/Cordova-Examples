@@ -5,7 +5,10 @@ This application demonstrates how to send a SMS message via a plugin.
 It will not work on the simulator (although it correctly handles the
 error).
 
+Since the time I created this example, the plugin I used has disappeared
+and a new plugin should be used instead. 
+
 Please add the following plugins:
 
-	com.jsmobile.plugins.sms 0.0.1
-	org.apache.cordova.dialogs 0.2.11
+	cordova-plugin-sms
+	cordova-plugin-dialogs
