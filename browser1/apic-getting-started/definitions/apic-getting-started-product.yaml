@@ -1,0 +1,25 @@
+product: '1.0.0'
+
+info:
+  name: apic-getting-started
+  title: apic-getting-started
+  version: 1.0.0
+
+apis:
+  'apic-getting-started':
+    $ref: apic-getting-started.yaml
+
+visibility:
+  view:
+    type: public
+  subscribe:
+    type: authenticated
+
+plans:
+  default:
+    title: Default Plan
+    description: Default Plan
+    approval: false
+    rate-limit:
+      value: 100/hour
+      hard-limit: false

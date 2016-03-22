@@ -1,0 +1,35 @@
+When using CAMERA source, 
+
+Refused to load media from 'blob:http%3A//localhost%3A8000/d62e77b1-8354-4f25-abd2-f0634de5a4f5' because it violates the following Content Security Policy directive: "media-src *".
+
+Add blob to CSP for media src, Chrome bug: http://stackoverflow.com/questions/28467789/content-security-policy-object-src-blob
+
+Camera video does audio - causes reverb
+
+https://github.com/thomasfl/filewatcher
+
+Accelerometer: https://issues.apache.org/jira/browse/CB-7629
+clear throws error too
+not period, but frequency (Cordova typings knew this)
+watch is random ONE time
+
+Orientation:
+watch is truly random
+
+File: Skipping (IE+Firefox = IDB)
+FileTransfer: Uses XHR FormData
+Geolocation: Skipping - no different
+
+Globalization
+	moment.js
+	
+	"The array of months contains 12 elements."
+	win phone 8 "The array of months contains 13 elements."
+	
+InAppBrowser
+	"Plugin is implemented via iframe,"
+	
+	MediaCapture, just image
+	
+Network
+Browser can't detect the type of network connection. navigator.connection.type is always set to Connection.UNKNOWN when online.
