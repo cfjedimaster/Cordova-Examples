@@ -91,7 +91,6 @@ angular.module('starter', ['ionic'])
 
 	$scope.details = function() {
 		console.log('Details', user.details);
-		console.log('Details from current() ', Ionic.User.current().details);
 		console.log('custom detail ',user.get('lastLogin'));
 	};
 	
