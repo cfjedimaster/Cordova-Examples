@@ -15,19 +15,13 @@
 					console.log('from cache');
 					deferred.resolve(entries);
 				} else {
-					google.load("feeds", "1",{callback:function() {
-						console.log('googles init called');
-						var feed = new google.feeds.Feed(url);
+					var pipeUrl = 'https://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('select * from rss where url="'+url+'"')+ '&format=json';
 
-						feed.setNumEntries(10);
-						feed.load(function(result) {
-							entries = result.feed.entries;
-							deferred.resolve(entries);
-						});
-
-
-					}});
-
+					$http.get(pipeUrl).then(function(results) {
+						entries = results.data.query.results.item;
+						console.dir(entries);
+						deferred.resolve(entries);
+					});
 				}
 				return deferred.promise;
 			}
