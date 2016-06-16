@@ -17,7 +17,7 @@
 
 </ion-content>
 
-<ion-content *ngIf="locations.length" padding class="weatherContent">
+<ion-content #weatherContent *ngIf="locations.length" padding [ngClass]="curClass">
 
 	<ion-slides #mySlides (ionDidChange)="onSlideChanged()">
 		<ion-slide *ngFor="let location of locations;let i = index">

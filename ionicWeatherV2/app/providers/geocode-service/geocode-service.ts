@@ -10,16 +10,11 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class GeocodeService {
-  data: any = null;
   key:String = 'AIzaSyDAA-PApehssTB8B-tFfMz0gWH-Br2ARvI';
   
   constructor(public http: Http) {}
 
   locate(address) {
-	if (this.data) {
-	  // already loaded data
-	  return Promise.resolve(this.data);
-	}
 
 	// don't have the data yet
 	return new Promise(resolve => {
@@ -32,11 +27,10 @@ export class GeocodeService {
 			// we've got back the raw data, now generate the core schedule data
 			// and save the data for later reference
 			if(data.status === "OK") {
-				this.data = {name: data.results[0].formatted_address, location:{
+				resolve({name: data.results[0].formatted_address, location:{
 					latitude: data.results[0].geometry.location.lat,
 					longitude: data.results[0].geometry.location.lng
-				}};
-				resolve(this.data);
+				}});
 			} else {
 				console.log(data);
 				console.log('need to reject');

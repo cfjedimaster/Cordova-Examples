@@ -1,7 +1,7 @@
-import {Component,ViewChild,Slides} from '@angular/core';
+import {Component,ViewChild} from '@angular/core';
 import {WeatherService} from '../../providers/weather-service/weather-service';
 import {GeocodeService} from '../../providers/geocode-service/geocode-service';
-import {Alert, NavController} from 'ionic-angular';
+import {Alert, NavController,Slides,Content} from 'ionic-angular';
 
 @Component({
 	providers: [WeatherService,GeocodeService],
@@ -12,6 +12,9 @@ export class HomePage {
 	public weather:Object = {temperture:''};
 	public locations:Array<Object>;
 	@ViewChild('mySlides') slider: Slides;
+	@ViewChild('weatherContent') weatherContent:Content
+
+	public curClass:String;
 
 	/*
 	I store a related array of weather reports so that when we add a city, we don't lose the existing
@@ -26,10 +29,10 @@ export class HomePage {
 
 		if(this.locations.length) {
 			this.locations.forEach((loc,idx) => {
-				console.log('get weather for '+JSON.stringify(loc));
 				this.weatherService.load(loc.location.latitude, loc.location.longitude).then(weatherRes => {
-					//console.log('got a result of '+JSON.stringify(weatherRes));
 					this.weatherData[idx] = this.formatWeather(weatherRes);
+					//update the css for slide 0 only
+					if(idx === 0) this.curClass = 'weatherContent-'+this.weatherData[idx].icon;
 				});
 			});
 		}
@@ -54,8 +57,7 @@ export class HomePage {
 		let index = currentLocations.length-1;
 		this.weatherService.load(location.location.latitude, location.location.longitude).then(weatherRes => {
 			this.weatherData[index] = this.formatWeather(weatherRes);
-			console.log('set weather for '+index);
-			console.log(this.weatherData);
+			if(index === 0) this.curClass = 'weatherContent-'+this.weatherData[index].icon;
 		});
 
 		this.locations = currentLocations;
@@ -69,16 +71,10 @@ export class HomePage {
 
 	onSlideChanged() {
 		let currentIndex = this.slider.getActiveIndex();
-		//do we have weather for it?
-		/* no longer necessary
-		if(!this.weatherData[currentIndex]) {
-			console.log('loading weather info for this one', this.locations[currentIndex]);
-			this.weatherService.load(this.locations[currentIndex].location.latitude, this.locations[currentIndex].location.longitude).then(weatherRes => {
-				this.weatherData[currentIndex] = weatherRes.currently;
-			});
-			
-		}
-		*/
+		var weatherClass = 'weatherContent-'+this.weatherData[currentIndex].icon;
+		console.log('class is '+weatherClass);
+		this.curClass = weatherClass;
+
 	}
 
 	doAdd() {
