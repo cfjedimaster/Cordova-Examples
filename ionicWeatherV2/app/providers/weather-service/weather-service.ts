@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class WeatherService {
-  key: string = 'e4564fca8b58ae55866491bf6ceec485';
+  key: string = 'change me';
 
   constructor(public http: Http) {
     this.http = http;
@@ -18,28 +18,9 @@ export class WeatherService {
 
   load(latitude:String,longitude:String) {
 
-    // don't have the data yet
-    return new Promise(resolve => {
-      // We're using Angular Http provider to request the data,
-      // then on the response it'll map the JSON data to a parsed JS object.
-      // Next we process the data and resolve the promise with the new data.
-      /*
-      var latitude:String = '30.2238889';
-      var longitude:String = '-92.0197222';
-      */
-
-      //console.log('about to get weather','https://api.forecast.io/forecast/'+this.key+'/'+latitude+','+longitude); 
-
-      
-      this.http.get('https://api.forecast.io/forecast/'+this.key+'/'+latitude+','+longitude+'?exclude=alerts,minutely,hourly')
-        .map(res => res.json())
-        .subscribe(data => {
-          // we've got back the raw data, now generate the core schedule data
-          // and save the data for later reference
-          resolve(data);
-        });
+      return this.http.get('https://api.forecast.io/forecast/'+this.key+'/'+latitude+','+longitude+'?exclude=alerts,minutely,hourly')
+        .map(res => res.json());
         
-    });
   }
 }
 
