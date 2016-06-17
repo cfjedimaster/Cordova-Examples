@@ -29,7 +29,7 @@ export class HomePage {
 
 		if(this.locations.length) {
 			this.locations.forEach((loc,idx) => {
-				this.weatherService.load(loc.location.latitude, loc.location.longitude).then(weatherRes => {
+				this.weatherService.load(loc.location.latitude, loc.location.longitude).subscribe(weatherRes => {
 					this.weatherData[idx] = this.formatWeather(weatherRes);
 					//update the css for slide 0 only
 					if(idx === 0) this.curClass = 'weatherContent-'+this.weatherData[idx].icon;
@@ -55,7 +55,7 @@ export class HomePage {
 		let currentLocations = this.getLocations();
 		currentLocations.push(location);
 		let index = currentLocations.length-1;
-		this.weatherService.load(location.location.latitude, location.location.longitude).then(weatherRes => {
+		this.weatherService.load(location.location.latitude, location.location.longitude).subscribe(weatherRes => {
 			this.weatherData[index] = this.formatWeather(weatherRes);
 			if(index === 0) this.curClass = 'weatherContent-'+this.weatherData[index].icon;
 		});
