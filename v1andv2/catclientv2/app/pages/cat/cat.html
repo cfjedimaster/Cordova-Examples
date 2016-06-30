@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Cat: {{cat.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-header>{{cat.name}}</ion-card-header>
+    <ion-card-content>
+				<p>
+				{{cat.name}} is {{cat.age}} years old with a {{cat.color}} color and is 
+				<span *ngIf="!cat.friendly">not</span> friendly.
+				</p>
+
+        <span *ngIf="cat.image">
+          <img [src]="cat.image" style="max-width:500px;">
+        </span>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

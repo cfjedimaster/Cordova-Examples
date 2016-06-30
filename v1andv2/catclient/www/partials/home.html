@@ -1,0 +1,15 @@
+<ion-view title="Cat List">
+
+	<ion-content class="padding">
+
+		<ion-list class="list list-inset">
+
+			<ion-item ng-repeat="cat in cats" href="#/cat/{{cat.id}}">
+				{{cat.name}}
+			</ion-item>
+
+		</ion-list>
+
+	</ion-content>
+
+</ion-view>
