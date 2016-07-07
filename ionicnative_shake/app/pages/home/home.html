@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Shake Demo
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home" padding>
+  <ion-list inset>
+    <ion-item *ngFor="let cat of cats"> {{ cat.name }} </ion-item>
+  </ion-list>
+
+  <button danger (click)="loadMore()">Load More</button>
+
+</ion-content>
