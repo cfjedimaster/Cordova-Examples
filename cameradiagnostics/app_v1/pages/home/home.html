@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Camera/Diagnostics
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+  <img src="{{img}}" *ngIf="img !== ''">
+
+  <button block primary (click)="getPic('take')">Take Picture</button>
+  <button block primary (click)="getPic('select')">Select Picture</button>
+
+</ion-content>
