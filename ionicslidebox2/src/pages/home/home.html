@@ -14,7 +14,7 @@
 
   <button ion-button full (click)="doSearch()">Search</button>
 
-  <ion-slides [options]="mySlideOptions">
+  <ion-slides [options]="{pager:true}" style="max-height:400px"  *ngIf="haveData">
     <ion-slide *ngFor="let slide of slides">
       <img [src]="slide.MediaUrl">
     </ion-slide>

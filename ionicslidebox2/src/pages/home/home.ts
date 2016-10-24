@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, Slides } from 'ionic-angular';
 import { ImageSearch } from '../../providers/image-search';
 
 @Component({
@@ -11,9 +11,7 @@ export class HomePage {
 
   search:string;
   slides:any[];
-  mySlideOptions = {
-    pager:true
-  };
+  haveData:boolean = false;
   
   constructor(public navCtrl: NavController, public searchProvider:ImageSearch) {
   }
@@ -22,7 +20,10 @@ export class HomePage {
     console.log('searching for '+this.search);
     this.searchProvider.search(this.search).subscribe(data => {
       console.log(data);
-      this.slides = data;
+      if(data.length >= 1) {
+        this.haveData=true;
+        this.slides = data;
+      }
     });
   }
 
