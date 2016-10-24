@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Image Search
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-input type="search" placeholder="Search" [(ngModel)]="search"></ion-input>
+  </ion-item>
+
+  <button ion-button full (click)="doSearch()">Search</button>
+
+  <ion-slides [options]="mySlideOptions">
+    <ion-slide *ngFor="let slide of slides">
+      <img [src]="slide.MediaUrl">
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>
