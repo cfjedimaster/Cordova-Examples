@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Observable';
 
 /*
   Generated class for the ImageSearch provider.
@@ -16,7 +15,6 @@ export class ImageSearch {
   rooturl = "https://api.datamarket.azure.com/Bing/Search/v1/Image?$format=json&Query='";
 
   constructor(public http: Http) {
-    this.http = http;
   }
 
   search(term:string) {
