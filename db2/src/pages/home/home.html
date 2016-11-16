@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Home
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logout()">
+        <ion-icon name="exit"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h2>Welcome back, {{ user.details.name }}</h2>
+
+  <ion-item>
+    <ion-label>Message</ion-label>
+    <ion-input type="text" [(ngModel)]="message"></ion-input>
+  </ion-item>
+  <button ion-button block (click)="sendMessage()">Send</button>
+
+  <ion-list>
+    <ion-item *ngFor="let chat of chats">
+      <h2>{{chat.text}}</h2>
+      <p>Posted {{chat.created | date}} at {{ chat.created | date:'shortTime' }}</p>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
