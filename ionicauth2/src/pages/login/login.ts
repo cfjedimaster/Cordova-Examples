@@ -45,6 +45,8 @@ export class LoginPage {
       
       this.auth.login('basic', {'email':this.email, 'password':this.password}).then(() => {
         console.log('ok i guess?');
+        loader.dismissAll();
+        this.navCtrl.setRoot(HomePage);                
       }, (err) => {
         loader.dismissAll();
         console.log(err.message);
