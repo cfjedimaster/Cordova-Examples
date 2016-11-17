@@ -11,7 +11,7 @@ export class HomePage {
   public message:string = '';
 
   constructor(public navCtrl: NavController, public db:Database) {
-    
+    this.db.connect();
     this.db.collection('chats').order('created','descending').watch().subscribe( (chats) => {
       console.dir(chats);
       this.chats = chats;
