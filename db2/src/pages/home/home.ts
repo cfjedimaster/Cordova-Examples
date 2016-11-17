@@ -19,7 +19,6 @@ export class HomePage {
     console.log(user);
 
     this.db.collection('chats').findAll({creator:this.user.id}).order('created','descending').watch().subscribe( (chats) => {
-      console.log('yes?');
       console.dir(chats);
       this.chats = chats;
     }, (error) => {

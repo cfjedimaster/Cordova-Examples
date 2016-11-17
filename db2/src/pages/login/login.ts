@@ -16,10 +16,6 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, public auth:Auth, public user: User, public alertCtrl: AlertController, public loadingCtrl:LoadingController, public db:Database) {}
 
-  ionViewDidLoad() {
-    console.log('Hello LoginPage Page');
-  }
-
   /*
   for both of these, if the right form is showing, process the form,
   otherwise show it
@@ -44,8 +40,8 @@ export class LoginPage {
       loader.present();
       
       this.auth.login('basic', {'email':this.email, 'password':this.password}).then(() => {
-        console.log('ok i guess?');
         loader.dismissAll();
+        //this is crucial
         this.db.connect();
         this.navCtrl.setRoot(HomePage);        
       }, (err) => {
