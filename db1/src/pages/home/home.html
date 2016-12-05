@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic DB Example
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label>Message</ion-label>
+    <ion-input type="text" [(ngModel)]="message"></ion-input>
+  </ion-item>
+  <button ion-button block (click)="sendMessage()">Send</button>
+
+  <ion-list>
+    <ion-item *ngFor="let chat of chats">
+      <h2>{{chat.text}}</h2>
+      <p>Posted {{chat.created | date}} at {{ chat.created | date:'shortTime' }}</p>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
