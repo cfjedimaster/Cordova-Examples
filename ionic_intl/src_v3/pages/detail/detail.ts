@@ -15,7 +15,17 @@ export class DetailPage {
 
   public cat:Object;
 
+  numberFormat(d) {
+    if(Intl) {
+      return new Intl.NumberFormat().format(d);
+    } else {
+      return d;
+    }
+  }
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    navParams.data.selectedCat.numRatings = this.numberFormat(navParams.data.selectedCat.numRatings);
+    navParams.data.selectedCat.avgRating = this.numberFormat(navParams.data.selectedCat.avgRating);
     this.cat = navParams.data.selectedCat;
   }
 

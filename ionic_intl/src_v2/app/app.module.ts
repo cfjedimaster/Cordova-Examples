@@ -3,16 +3,12 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { DetailPage } from '../pages/detail/detail';
-import { dtFormatPipe } from '../pipes/dtFormat';
-import { numberFormatPipe } from '../pipes/numberFormat';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    DetailPage,
-    dtFormatPipe,
-    numberFormatPipe
+    DetailPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)

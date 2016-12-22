@@ -8,10 +8,10 @@
 
 <ion-content padding>
 
-  <ion-list inset>
+  <ion-list>
     <ion-item *ngFor="let cat of cats" (click)="loadCat(cat)" detail-push>
       {{cat.name}} 
-      <ion-note item-right>Last rated: {{cat.lastRating}}</ion-note>
+      <ion-note item-right>Last rated: {{cat.lastRating | date:'shortDate'}}</ion-note>
     </ion-item>
   </ion-list>
 

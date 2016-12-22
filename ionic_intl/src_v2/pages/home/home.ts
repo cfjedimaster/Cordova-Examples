@@ -12,8 +12,9 @@ export class HomePage {
 
  public cats:Array<Object> = [];
 
+
   constructor(public navCtrl: NavController, public catProvider:CatProvider) {
-    catProvider.load().subscribe((catData) => {      
+    catProvider.load().subscribe((catData) => {
       this.cats.push(catData);
     });
   }

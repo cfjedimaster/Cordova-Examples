@@ -16,6 +16,7 @@ export class DetailPage {
   public cat:Object;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    console.log(navParams);
     this.cat = navParams.data.selectedCat;
   }
 
