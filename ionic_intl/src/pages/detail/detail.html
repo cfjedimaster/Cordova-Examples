@@ -1,0 +1,24 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{cat.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card>
+    <ion-card-header>
+      Details
+    </ion-card-header>
+
+    <ion-card-content>
+      The cat {{cat.name}} has gotten {{cat.numRatings | numberFormat }} ratings with an 
+      average of {{cat.avgRating | numberFormat}}.
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>
