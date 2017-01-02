@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Cat API Demo
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card *ngFor="let cat of cats">
+      <img src="{{cat.url}}" (click)="showCat(cat)">
+    </ion-card>
+
+</ion-content>
