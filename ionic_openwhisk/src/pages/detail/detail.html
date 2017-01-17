@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-card>
+    <img src="{{cat.url}}">
+    <ion-card-content>
+      <ion-card-title>Cat Detail</ion-card-title>
+      <p>I should have something more here - sorry!</p>
+      <button ion-button block (click)="loadSource(cat.source_url)">Original Source</button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
