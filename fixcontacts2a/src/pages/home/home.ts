@@ -46,7 +46,7 @@ export class HomePage {
 
       res.forEach( (contact:Contact) => {
 
-        if(!contact.photos || 1) {
+        if(!contact.photos) {
           console.log('FIXING '+contact.name.formatted);
           //console.log(contact);
 
