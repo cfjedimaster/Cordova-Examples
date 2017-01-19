@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons start>
+      <button ion-button icon-only (click)="doAdd()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>Home</ion-title>
+
+  </ion-toolbar>    
+</ion-header>
+
+<ion-content *ngIf="!locations.length" padding>
+	<h2>No Locations</h2>
+	<p>
+		You currently don't have any locations. Please add one.
+	</p>
+
+	<button ion-button full (click)="doAdd()">Add Location</button>
+
+</ion-content>
+
+<ion-content #weatherContent *ngIf="locations.length" padding [ngClass]="curClass">
+
+	<ion-slides #mySlides (ionSlideDidChange)="onSlideChanged()">
+		<ion-slide *ngFor="let location of locations;let i = index">
+			<h2>{{location.name}}</h2>
+
+			<div *ngIf="weatherData[i]">
+				<p>
+				{{ weatherData[i].summary }}
+				</p>
+				<p style="text-align:justify">
+				It is currently {{ weatherData[i].temperature | number:'2.0-0' }} &deg;F
+				and there is {{weatherData[i].precipProbability | percent}} chance of rain.
+				Tomorrow will be {{weatherData[i].tomorrow.summary}} with the
+				low being {{ weatherData[i].tomorrow.temperatureMin | number:'2.0-0' }} &deg;F
+				and a high of {{ weatherData[i].tomorrow.temperatureMax | number:'2.0-0' }} &deg;F.
+				</p>
+				<p style="text-align:justify">
+				The nearest storm to you is {{weatherData[i].nearestStormDistance}} miles away.
+				</p>
+			</div>
+		</ion-slide>
+	</ion-slides>
+
+</ion-content>
