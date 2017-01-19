@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { IonicApp, IonicModule } from 'ionic-angular';
+import { NgModule, ErrorHandler } from '@angular/core';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 import { HomePage } from '../pages/home/home';
@@ -30,6 +30,6 @@ const cloudSettings: CloudSettings = {
     HomePage,
     LoginPage
   ],
-  providers: []
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
