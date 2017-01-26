@@ -28,6 +28,7 @@ export class HomePage {
   }
 
   sendMessage() {
+    console.log('sendMessage');
     this.db.collection('chats').store({text:this.message, 
       created:Date.now(), creator:this.user.id});
   }
